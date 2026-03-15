@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+DO — a full digital office platform (Next.js App Router + Tailwind v4 + shadcn/ui).
 
 ## Getting Started
 
-First, run the development server:
+Install deps and run the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What’s in place
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Warm-dark theme tokens live in `src/app/globals.css` (base `#0c0b09`, surfaces, parchment/tan text, sage/terracotta/slate accents).
+- Fonts are set up via `next/font` in `src/app/layout.tsx` (Fraunces for display, Geist for UI).
+- App shell routes:
+  - `/` (Virtual Office)
+  - `/channels` + `/channels/*`
+  - `/projects` (Kanban shell)
+  - `/docs`
+  - `/whiteboard`
+  - `/calendar`
 
-## Learn More
+## UI components
 
-To learn more about Next.js, take a look at the following resources:
+shadcn/ui is initialized (base-nova) and components live in `src/components/ui`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Add more components with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx shadcn@latest add <component>
+```
 
-## Deploy on Vercel
+## Next steps
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Clerk auth + workspace scoping
+- Convex realtime data layer (presence, chat, kanban, notifications)
+- LiveKit rooms (always-on + scheduled meetings + video calls)
+- tldraw whiteboard + BlockNote docs editor
