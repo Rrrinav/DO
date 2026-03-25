@@ -1,7 +1,12 @@
+"use client"
+
+import { Tldraw } from "@tldraw/tldraw"
+import "@tldraw/tldraw/tldraw.css"
+
 export default function WhiteboardPage() {
   return (
-    <div className="space-y-6">
-      <header className="space-y-1">
+    <div className="flex h-full flex-col space-y-6">
+      <header className="shrink-0 space-y-1">
         <h2 className="font-display text-[24px] leading-tight text-cream">
           Whiteboard
         </h2>
@@ -10,12 +15,16 @@ export default function WhiteboardPage() {
         </p>
       </header>
 
-      <div className="rounded-xl border border-hairline bg-surface p-4">
-        <div className="text-[11px] tracking-[0.04em] text-tan">
-          Coming next: tldraw canvas, shared cursors, and persistence.
-        </div>
+      {/* The tldraw component needs a container with explicit dimensions.
+        We use flex-1 to fill the remaining space and min-h to ensure 
+        it doesn't collapse on smaller screens.
+      */}
+      <div className="relative min-h-[600px] flex-1 overflow-hidden rounded-xl border border-hairline bg-surface">
+        <Tldraw 
+          inferDarkMode={true} 
+          className="z-0"
+        />
       </div>
     </div>
   )
 }
-
