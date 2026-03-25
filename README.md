@@ -38,4 +38,4 @@ npx shadcn@latest add <component>
 - Clerk auth + workspace scoping
 - Convex realtime data layer (presence, chat, kanban, notifications)
 - LiveKit rooms (always-on + scheduled meetings + video calls)
-- tldraw whiteboard + BlockNote docs editor
+- make tldraw whiteboard collaborative + BlockNote docs editor
